@@ -1,0 +1,25 @@
+# vim:ft=plumed
+
+LOAD FILE=EnvironmentSimilarity.cpp
+
+ENVIRONMENTSIMILARITY ...
+ SPECIES=1-216
+ SIGMA=0.04
+ LATTICE_CONSTANTS=0.5431 # in nm
+ CRYSTAL_STRUCTURE=DIAMOND
+ LABEL=es
+ MORE_THAN={RATIONAL R_0=0.5 NN=6 MM=12}
+ MEAN
+... ENVIRONMENTSIMILARITY
+
+METAD ...
+ ARG=es.morethan
+ SIGMA=3
+ HEIGHT=60 # in kJ/mol
+ PACE=500 # Every 500 steps is standard
+ BIASFACTOR=50 # A barrier of 50 kT will be reduced to 1 kT once the bias is converged
+ TEMP=1700 # Temperature in K
+ LABEL=metad
+... METAD
+
+PRINT STRIDE=500  ARG=* FILE=COLVAR
