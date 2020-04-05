@@ -35,5 +35,12 @@ make lib-plumed args="-b"
 make yes user-plumed
 make yes-manybody
 make yes-molecule
-make mpi # make serial
+make mpi # or make serial if you don't have an MPI library
+lammpsexe=$(pwd)/lmp_mpi # or lammpsexe=$(pwd)/lmp_serial if you don't have an MPI library
+cd ../lib/plumed/plumed2/bin/
+plumedexe=$(pwd)/plumed
 ```
+
+Now you should be able to use *$lammpsexe* and *$plumedexe* to execute LAMMPS and PLUMED, respectively.
+If you close the shell these variables will be lost.
+A better alternative for more experienced users would be to include the appropriate folders in the *PATH* environment variable by adding a line in your ```~/.bashrc```.
