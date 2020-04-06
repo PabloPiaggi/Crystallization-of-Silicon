@@ -55,6 +55,17 @@ The time and lengthscales involved are often too short to be studied with experi
 In this tutorial we will see how we can study this fascinating process using enhanced sampling molecular dynamics simulations.
 We take as example the case of silicon that crystallizes in the cubic diamond crystal structure.
 
+### Well Tempered Metadynamics
+
+In well tempered metadynamics a bias potential <img src="https://render.githubusercontent.com/render/math?math=V(s)"> is constructed as a function of some collective variable *s*.
+The bias potential is constructed as a sum of repulsive Gaussians that discourage frequently visited configurations.
+In this way, the simulation explores different regions of the free energy surface <img src="https://render.githubusercontent.com/render/math?math=F(s)"> of the system.
+In the long time limit the bias potential converges to,
+
+<img src="https://render.githubusercontent.com/render/math?math=V(s)= - \left ( 1- \frac{1}{\gamma} \right ) F(s)">
+
+where <img src="https://render.githubusercontent.com/render/math?math=\gamma"> is the bias factor.
+
 ### Collective variable
 
 <!---
@@ -76,8 +87,9 @@ The environments <img src="https://render.githubusercontent.com/render/math?math
 
 where <img src="https://render.githubusercontent.com/render/math?math=\rho_{\chi}(\mathbf{r})"> is the atomic density around environment <img src="https://render.githubusercontent.com/render/math?math=\chi">.
 In this way we obtain one value of the kernel per atom in the system.
-We will then use a collective variable the average of the <img src="https://render.githubusercontent.com/render/math?math=k_{\chi_0}(\chi)"> in the system and the number of <img src="https://render.githubusercontent.com/render/math?math=k_{\chi_0}(\chi)"> that are larger than some threshold.
-Note that the last CV is equivalent to counting the number of atoms that have a crystalline environment.
+We will then use as collective variable the number of <img src="https://render.githubusercontent.com/render/math?math=k_{\chi_0}(\chi)"> that are larger than some threshold.
+This is equivalent to counting the number of atoms that have a crystalline environment.
+We will also calculate the average of the <img src="https://render.githubusercontent.com/render/math?math=k_{\chi_0}(\chi)">.
 
 You can find more details about the CV [in this article](https://aip.scitation.org/doi/abs/10.1063/1.5102104).
 
