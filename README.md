@@ -135,7 +135,7 @@ $plumedexe sum_hills --hills HILLS --mintozero
 This will create a new file fes.dat.
 Plot the contents of this file and track the convergence of the bias potential.
 
-This analysis is performed in a Jupyter Notebook in the folder:
+This analysis is performed in the Jupyter Notebook ```Metadynamics-1700K/Results/Analysis.ipynb```
 
 Explore this notebook online! [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/PabloPiaggi/Crystallization-of-Silicon/master?filepath=Metadynamics-1700K%2FResults%2FAnalysis.ipynb)
 
