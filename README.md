@@ -1,13 +1,13 @@
 # Tutorial: Crystallization of Silicon
 
 This repository contains input files for simulating the crystallization of silicon using enhanced sampling methods.
-Silicon is described using the Stillinger-Weber potential [Stillinger and Weber,  Phys. Rev. B, v. 31, p. 5262, (1985)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.31.5262).
+Silicon is described using the Stillinger-Weber potential [Stillinger and Weber,  Phys. Rev. B, v. 31, p. 5262, (1985)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.31.5262) . A bias potential is constructed using [well tempered metadynamics](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.100.020603) as a function of the collective variable introduced [in this article](https://aip.scitation.org/doi/abs/10.1063/1.5102104).
 
 ## Requirements
 
 This tutorial uses the molecular dynamics engine LAMMPS patched with the PLUMED 2 enhanced sampling plugin.
 
-### Installation
+## Installation
 
 <!--
 PLUMED can be installed with the following commands:
@@ -47,6 +47,13 @@ A better alternative for more experienced users would be to include the appropri
 
 ## Introduction
 
+During crystallization the disordered atoms of a liquid spontaneously organized into periodic patterns with long range order.
+The time and lengthscales involved are often too short to be studied with experiments.
+In this tutorial we will see how we can study this fascinating process using enhanced sampling molecular dynamics simulations.
+
+### Collective variable
+
+<img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
 
 ## Example
 
