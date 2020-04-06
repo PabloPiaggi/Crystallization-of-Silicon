@@ -90,6 +90,14 @@ out.lmp file contains LAMMPS' output.
 PLUMED's output files are plumed.out and COLVAR.
 Inspect the COLVAR file, this will contain the collective variable, the bias potential, and other interesting quantities as a function of simulation time.
 
+While the simulation is running you can check its progress by plotting the collective variable as a function of time.
+Furthermore, you can calculate the FES with the command
+```
+$plumedexe sum_hills --hills HILLS --mintozero
+```
+This will create a new file fes.dat.
+Plot the contents of this file and track the convergence of the bias potential.
+
 ## Assignments
 
 The following tasks are proposed:
