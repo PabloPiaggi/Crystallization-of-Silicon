@@ -124,7 +124,7 @@ $lammpsexe < start.lmp > out.lmp
 This will run a 5 ns long metadynamics simulation at 1700 K and 1 bar.
 Several output files will be created.
 out.lmp file contains LAMMPS' output.
-PLUMED's output files are plumed.out and COLVAR.
+PLUMED's output files are log.plumed and COLVAR.
 Inspect the COLVAR file, this will contain the collective variable, the bias potential, and other interesting quantities as a function of simulation time.
 
 While the simulation is running you can check its progress by plotting the collective variable as a function of time.

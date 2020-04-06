@@ -61,7 +61,7 @@ unfix           2
 
 
 # Dump trajectories in dump and dcd format
-dump            myDump all atom ${out_freq2} dump.na
+dump            myDump all atom ${out_freq2} si.lammps-dump-text
 dump            myDcdDump all dcd ${out_freq2} out.dcd
 
 # NPT + enhanced sampling
