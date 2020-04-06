@@ -61,7 +61,18 @@ We consider an environment <img src="https://render.githubusercontent.com/render
 
 where *i* runs over the neighbors in the environment <img src="https://render.githubusercontent.com/render/math?math=\chi"> and <img src="https://render.githubusercontent.com/render/math?math=\mathbf{r}_i"> are the coordinates of the neighbors relative to the central atom.
 
-We now define two reference environments or templates <img src="https://render.githubusercontent.com/render/math?math=\chi_0^1"> and <img src="https://render.githubusercontent.com/render/math?math=\chi_0^2"> that each contains 4 reference positions <img src="https://render.githubusercontent.com/render/math?math=\{\mathbf{r}^0_1,...,\mathbf{r}^0_4\}"> that describe the two environments that exist in the cubic diamond crystal structure.
+We now define two reference environments or templates <img src="https://render.githubusercontent.com/render/math?math=\chi_0^1"> and <img src="https://render.githubusercontent.com/render/math?math=\chi_0^2">.
+Each contains 4 reference positions <img src="https://render.githubusercontent.com/render/math?math=\{\mathbf{r}^0_1,...,\mathbf{r}^0_4\}"> that describe the two environments that exist in the cubic diamond crystal structure.
+
+We compare the environments <img src="https://render.githubusercontent.com/render/math?math=\chi"> and <img src="https://render.githubusercontent.com/render/math?math=\chi_0"> using the kernel,
+ 
+<img src="https://render.githubusercontent.com/render/math?math=k_{\chi_0}(\chi)= \int d\mathbf{r} \rho_{\chi}(\mathbf{r}) \rho_{\chi_0}(\mathbf{r}).">
+
+If we combine the equations above, perform the integration analytically, and normalize we obtain,
+
+<img src="https://render.githubusercontent.com/render/math?math=k_{\chi_0}(\chi) = \frac{1}{n} \sum_{i\in\chi} \sum\limits_{j\in\chi_0} \exp\left( - \frac{|\mathbf{r}_i-\mathbf{r}^0_j|^2} {4\sigma^2} \right).">
+
+This is the per atom collective variable (or multicolvar) that we will employ.
 
 ## Example
 
