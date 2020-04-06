@@ -3,6 +3,17 @@
 This repository contains input files for simulating the crystallization of silicon using enhanced sampling methods.
 Silicon is described using the Stillinger-Weber potential [Stillinger and Weber,  Phys. Rev. B, v. 31, p. 5262, (1985)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.31.5262) . A bias potential is constructed using [well tempered metadynamics](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.100.020603) as a function of the collective variable introduced [in this article](https://aip.scitation.org/doi/abs/10.1063/1.5102104).
 
+## Table of contents
+
+* [Objectives and learning outcomes](#objectives-and-learning-outcomes)
+* [Requirements and installation](#requirements-and-installation)
+* [Introduction](#introduction)
+   * [Well tempered metadynamics](#well-tempered-metadynamics)
+   * [Collective variable](#collective-variable)
+* [Example](#example)
+* [Assignment](#assignment)
+
+
 ## Objectives and learning outcomes
 
 In this tutorial the student will learn to perform enhanced sampling simulations.
@@ -55,7 +66,9 @@ The time and lengthscales involved are often too short to be studied with experi
 In this tutorial we will see how we can study this fascinating process using enhanced sampling molecular dynamics simulations.
 We take as example the case of silicon that crystallizes in the cubic diamond crystal structure.
 
-### Well Tempered Metadynamics
+Below we provide a (very short) summary of the methods that will be employed.
+
+### Well tempered metadynamics
 
 In well tempered metadynamics a bias potential <img src="https://render.githubusercontent.com/render/math?math=V(s)"> is constructed as a function of some collective variable *s*.
 The bias potential is constructed as a sum of repulsive Gaussians that discourage frequently visited configurations.
@@ -122,7 +135,7 @@ $plumedexe sum_hills --hills HILLS --mintozero
 This will create a new file fes.dat.
 Plot the contents of this file and track the convergence of the bias potential.
 
-## Assignments
+## Assignment
 
 The following tasks are proposed:
 * Repeat the simulation at different temperatures, e.g. in steps of 50 o 100 K
