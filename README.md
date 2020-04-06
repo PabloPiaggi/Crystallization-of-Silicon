@@ -70,7 +70,7 @@ We compare the environments <img src="https://render.githubusercontent.com/rende
 
 If we combine the equations above, perform the integration analytically, and normalize we obtain,
 
-<img src="https://render.githubusercontent.com/render/math?math=k_{\chi_0}(\chi) = \frac{1}{n} \sum_{i\in\chi} \sum\limits_{j\in\chi_0} \exp\left( - \frac{|\mathbf{r}_i-\mathbf{r}^0_j|^2} {4\sigma^2} \right).">
+<img src="https://render.githubusercontent.com/render/math?math=k_{\chi_0}(\chi) = \frac{1}{n} \sum_{i\in\chi} \sum_{j\in\chi_0} \exp\left( - \frac{|\mathbf{r}_i-\mathbf{r}^0_j|^2} {4\sigma^2} \right).">
 
 This is the per atom collective variable (or multicolvar) that we will employ.
 
