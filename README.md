@@ -3,11 +3,14 @@
 This repository contains input files for simulating the crystallization of silicon using enhanced sampling methods.
 Silicon is described using the Stillinger-Weber potential [Stillinger and Weber,  Phys. Rev. B, v. 31, p. 5262, (1985)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.31.5262) . A bias potential is constructed using [well tempered metadynamics](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.100.020603) as a function of the collective variable introduced [in this article](https://aip.scitation.org/doi/abs/10.1063/1.5102104).
 
-## Requirements
+## Objectives and learning outcomes
+
+In this tutorial the student will learn to perform enhanced sampling simulations.
+We will study in particular the crystallization of silicon and learn to calculate free energy differences, the equilibrium temperature between two phases, and obtain atomistic insight into a important phase transformation.
+
+## Requirements and installation
 
 This tutorial uses the molecular dynamics engine LAMMPS patched with the PLUMED 2 enhanced sampling plugin.
-
-## Installation
 
 <!--
 PLUMED can be installed with the following commands:
@@ -87,7 +90,7 @@ out.lmp file contains LAMMPS' output.
 PLUMED's output files are plumed.out and COLVAR.
 Inspect the COLVAR file, this will contain the collective variable, the bias potential, and other interesting quantities as a function of simulation time.
 
-## Objectives
+## Assignments
 
 The following tasks are proposed:
 * Repeat the simulation at different temperatures, e.g. in steps of 50 o 100 K
