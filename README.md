@@ -50,6 +50,7 @@ A better alternative for more experienced users would be to include the appropri
 During crystallization the disordered atoms of a liquid spontaneously organized into periodic patterns with long range order.
 The time and lengthscales involved are often too short to be studied with experiments.
 In this tutorial we will see how we can study this fascinating process using enhanced sampling molecular dynamics simulations.
+We take as example the case of silicon that crystallizes in the cubic diamond crystal structure.
 
 ### Collective variable
 
@@ -59,6 +60,8 @@ We consider an environment <img src="https://render.githubusercontent.com/render
 <img src="https://render.githubusercontent.com/render/math?math=\rho_{\chi}(\mathbf{r})=\sum_{i\in\chi} \exp\left(- \frac{|\mathbf{r}_i-\mathbf{r}|^2} {2\sigma^2} \right),">
 
 where *i* runs over the neighbors in the environment <img src="https://render.githubusercontent.com/render/math?math=\chi"> and <img src="https://render.githubusercontent.com/render/math?math=\mathbf{r}_i"> are the coordinates of the neighbors relative to the central atom.
+
+We now define two reference environments or templates <img src="https://render.githubusercontent.com/render/math?math=\chi_0^1"> and <img src="https://render.githubusercontent.com/render/math?math=\chi_0^2"> that each contains 4 reference positions <img src="https://render.githubusercontent.com/render/math?math=\{\mathbf{r}^0_1,...,\mathbf{r}^0_4\}"> that describe the two environments that exist in the cubic diamond crystal structure.
 
 ## Example
 
