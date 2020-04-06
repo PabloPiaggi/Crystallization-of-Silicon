@@ -57,6 +57,7 @@ We take as example the case of silicon that crystallizes in the cubic diamond cr
 
 ### Collective variable
 
+<!---
 The starting point for the definition of our order parameter is a local atomic density around an atom.
 We consider an environment <img src="https://render.githubusercontent.com/render/math?math=\chi"> around an atom and we define the density by,
 
@@ -66,16 +67,27 @@ where *i* runs over the neighbors in the environment <img src="https://render.gi
 
 We now define two reference environments or templates <img src="https://render.githubusercontent.com/render/math?math=\chi_0^1"> and <img src="https://render.githubusercontent.com/render/math?math=\chi_0^2">.
 Each contains 4 reference positions <img src="https://render.githubusercontent.com/render/math?math=\{\mathbf{r}^0_1,...,\mathbf{r}^0_4\}"> that describe the two environments that exist in the cubic diamond crystal structure.
+-->
 
-We compare the environments <img src="https://render.githubusercontent.com/render/math?math=\chi"> and <img src="https://render.githubusercontent.com/render/math?math=\chi_0"> using the kernel,
+The collective variable (CV) that we will use is based on comparing the atomic environments in the simulation with those of a reference crystal structure.
+The environments <img src="https://render.githubusercontent.com/render/math?math=\chi"> and <img src="https://render.githubusercontent.com/render/math?math=\chi_0"> are compared using the kernel,
  
 <img src="https://render.githubusercontent.com/render/math?math=k_{\chi_0}(\chi)= \int d\mathbf{r} \rho_{\chi}(\mathbf{r}) \rho_{\chi_0}(\mathbf{r}).">
 
+where <img src="https://render.githubusercontent.com/render/math?math=\rho_{\chi}(\mathbf{r})"> is the atomic density around environment <img src="https://render.githubusercontent.com/render/math?math=\chi">.
+In this way we obtain one value of the kernel per atom in the system.
+We will then use a collective variable the average of the <img src="https://render.githubusercontent.com/render/math?math=k_{\chi_0}(\chi)"> in the system and the number of <img src="https://render.githubusercontent.com/render/math?math=k_{\chi_0}(\chi)"> that are larger than some threshold.
+Note that the last CV is equivalent to counting the number of atoms that have a crystalline environment.
+
+You can find more details about the CV [in this article](https://aip.scitation.org/doi/abs/10.1063/1.5102104).
+
+<!---
 If we combine the equations above, perform the integration analytically, and normalize we obtain,
 
 <img src="https://render.githubusercontent.com/render/math?math=k_{\chi_0}(\chi) = \frac{1}{n} \sum_{i\in\chi} \sum_{j\in\chi_0} \exp\left( - \frac{|\mathbf{r}_i-\mathbf{r}^0_j|^2} {4\sigma^2} \right).">
 
 This is the per atom collective variable (or multicolvar) that we will employ.
+-->
 
 ## Example
 
