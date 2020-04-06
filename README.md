@@ -56,7 +56,7 @@ In this tutorial we will see how we can study this fascinating process using enh
 The starting point for the definition of our order parameter is a local atomic density around an atom.
 We consider an environment <img src="https://render.githubusercontent.com/render/math?math=\chi"> around an atom and we define the density by,
 
-<img src="https://render.githubusercontent.com/render/math?math=\rho_{\chi}(\mathbf{r})=\sum\limits_{i\in\chi} \exp\left(- \frac{|\mathbf{r}_i-\mathbf{r}|^2} {2\sigma^2} \right),">
+<img src="https://render.githubusercontent.com/render/math?math=\rho_{\chi}(\mathbf{r})=\sum_{i\in\chi} \exp\left(- \frac{|\mathbf{r}_i-\mathbf{r}|^2} {2\sigma^2} \right),">
 
 where *i* runs over the neighbors in the environment <img src="https://render.githubusercontent.com/render/math?math=\chi"> and <img src="https://render.githubusercontent.com/render/math?math=\mathbf{r}_i"> are the coordinates of the neighbors relative to the central atom.
 
