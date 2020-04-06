@@ -45,12 +45,23 @@ Now you should be able to use *$lammpsexe* and *$plumedexe* to execute LAMMPS an
 If you close the shell these variables will be lost.
 A better alternative for more experienced users would be to include the appropriate folders in the *PATH* environment variable by adding a line in your ```~/.bashrc```.
 
+## Introduction
 
-You can run the example in the folder ```Metadynamics-1700K``` with the command:
+
+## Example
+
+The folder ```Metadynamics-1700K``` contains the input files to run the simulation.
+You can run the example with the command:
 ```
 $lammpsexe < start.lmp > out.lmp
 ```
 This will run a 5 ns long metadynamics simulation at 1700 K and 1 bar.
+Several output files will be created.
+out.lmp file contains LAMMPS' output.
+PLUMED's output files are plumed.out and COLVAR.
+Inspect the COLVAR file, this will contain the collective variable, the bias potential, and other interesting quantities as a function of simulation time.
+
+## Objectives
 
 The following tasks are proposed:
 * Repeat the simulation at different temperatures, e.g. in steps of 50 o 100 K
