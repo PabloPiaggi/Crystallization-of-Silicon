@@ -150,7 +150,8 @@ Apply the ```Identify diamond structure``` modifier that can be chosen from the 
 
 Below we show liquid and solid configurations colored with the modifier ```Identify diamond structure```.
 
-![](https://github.com/PabloPiaggi/Crystallization-of-Silicon/raw/master/si-liquid.png | width=100) ![](https://github.com/PabloPiaggi/Crystallization-of-Silicon/raw/master/si-solid.png  | width=100)
+![alt text](https://github.com/PabloPiaggi/Crystallization-of-Silicon/raw/master/si-liquid.png | width=100) 
+![alt text](https://github.com/PabloPiaggi/Crystallization-of-Silicon/raw/master/si-solid.png | width=100)
 
 ## Assignment
 
