@@ -152,10 +152,10 @@ Below we show liquid and solid configurations colored with the modifier ```Ident
 
 <div class="row">
   <div class="column">
-    <img src="https://github.com/PabloPiaggi/Crystallization-of-Silicon/raw/master/si-liquid.png" width="250"> 
+    <img src="https://github.com/PabloPiaggi/Crystallization-of-Silicon/raw/master/si-liquid.png" alt="Liquid" style="width:100%"> 
   </div>
   <div class="column">
-    <img src="https://github.com/PabloPiaggi/Crystallization-of-Silicon/raw/master/si-solid.png" width="250">
+    <img src="https://github.com/PabloPiaggi/Crystallization-of-Silicon/raw/master/si-solid.png" alt="Solid" style="width:100%">
   </div>
 </div>
 
