@@ -11,6 +11,7 @@ Silicon is described using the Stillinger-Weber potential [Stillinger and Weber,
    * [Well tempered metadynamics](#well-tempered-metadynamics)
    * [Collective variable](#collective-variable)
 * [Example](#example)
+* [Visualization](#visualization)
 * [Assignment](#assignment)
 
 
@@ -139,6 +140,18 @@ This analysis is performed in the Jupyter Notebook ```Metadynamics-1700K/Results
 
 Explore this notebook online! [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/PabloPiaggi/Crystallization-of-Silicon/master?filepath=Metadynamics-1700K%2FResults%2FAnalysis.ipynb)
 
+## Visualization
+
+We recommend using the software [Ovito](https://www.ovito.org/) for the visualization of the trajectories.
+Ovito is very user friendly, and you can find instructions and download it from their website.
+
+Once that you have loaded the dump file into Ovito you can color the atoms according to the degree of order around them.
+Apply the ```Identify diamond structure``` modifier that can be chosen from the ```Add modification``` dropdown menu.
+
+Below we show liquid and solid configurations colored with the modifier ```Identify diamond structure```.
+
+![alt text](https://github.com/PabloPiaggi/Crystallization-of-Silicon/raw/master/si-liquid.png "Liquid Si")
+![alt text](https://github.com/PabloPiaggi/Crystallization-of-Silicon/raw/master/si-solid.png "Liquid Si")
 
 ## Assignment
 
