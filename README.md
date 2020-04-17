@@ -47,7 +47,7 @@ wget https://github.com/lammps/lammps/archive/stable_3Mar2020.tar.gz
 tar -xf stable_3Mar2020.tar.gz
 cd lammps-stable_3Mar2020/src
 make lib-plumed args="-b"
-make yes user-plumed
+make yes-user-plumed
 make yes-manybody
 make yes-molecule
 make mpi # or make serial if you don't have an MPI library
