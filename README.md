@@ -54,6 +54,7 @@ make mpi # or make serial if you don't have an MPI library
 lammpsexe=$(pwd)/lmp_mpi # or lammpsexe=$(pwd)/lmp_serial if you don't have an MPI library
 cd ../lib/plumed/plumed2/bin/
 plumedexe=$(pwd)/plumed
+source ../../plumed-2.6.0/sourceme.sh
 ```
 
 Now you should be able to use *$lammpsexe* and *$plumedexe* to execute LAMMPS and PLUMED, respectively.
