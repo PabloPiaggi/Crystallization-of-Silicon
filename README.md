@@ -23,23 +23,13 @@ We will study in particular the crystallization of silicon and learn to calculat
 ## Requirements and installation
 
 This tutorial uses the molecular dynamics engine LAMMPS patched with the PLUMED 2 enhanced sampling plugin.
+It is difficult to provide installation instructions that suit everyone.
+I propose two different solutions.
+I suggest to try the first one and use the second alternative if the first fails.
 
-<!--
-PLUMED can be installed with the following commands:
-```
-mkdir plumed2-install
-installfolder=$(pwd)/plumed2-install
-wget https://github.com/plumed/plumed2/releases/download/v2.6.0/plumed-2.6.0.tgz
-tar -xf plumed-2.6.0.tgz
-cd plumed-2.6.0/
-./configure --prefix=$installfolder
-make -j 2
-make install
-cd ..
-```
-If the previous commands are succesful, you can proceed to install LAMMPS:
--->
+#### Compilation instructions: First alternative
 
+Let's start with the easiest.
 LAMMPS and PLUMED can be installed with the following commands:
 
 ```
@@ -52,14 +42,69 @@ make yes-manybody
 make yes-molecule
 make mpi # or make serial if you don't have an MPI library
 lammpsexe=$(pwd)/lmp_mpi # or lammpsexe=$(pwd)/lmp_serial if you don't have an MPI library
-cd ../lib/plumed/plumed2/bin/
-plumedexe=$(pwd)/plumed
-source ../../plumed-2.6.0/sourceme.sh
+cd ../lib/plumed/plumed-2.6.0
+source sourceme.sh
 ```
 
-Now you should be able to use *$lammpsexe* and *$plumedexe* to execute LAMMPS and PLUMED, respectively.
-If you close the shell these variables will be lost.
-A better alternative for more experienced users would be to include the appropriate folders in the *PATH* environment variable by adding a line in your ```~/.bashrc```.
+Now you should be able to use *$lammpsexe* and *plumed* to execute LAMMPS and PLUMED, respectively.
+If you close the terminal these commands will no longer be available.
+In order to recover them run the last three commands again.
+
+A better option for more experienced users would be to include these lines in your ```~/.bashrc```:
+```
+lammpsexe=${path_to_lammps}/src/lmp_mpi # or lmp_serial if you don't have an MPI library
+source ${path_to_lammps}/lib/plumed/plumed-2.6.0/sourceme.sh
+```
+Note that you should replace ```${path_to_lammps}``` with the appropriate path to the LAMMPS folder.
+
+#### Compilation instructions: Second alternative
+
+If the first set of instructions didn't work you can try the following.
+PLUMED's master branch can be installed with the following commands:
+```
+mkdir plumed2-install
+installfolder=$(pwd)/plumed2-install
+wget https://github.com/plumed/plumed2/archive/master.zip
+unzip master.zip
+cd plumed2-master
+./configure --prefix=$installfolder --enable-modules=crystallization
+make -j 2 # Replace 2 with the number of processore you want to use
+make install
+source sourceme.sh
+cd ..
+```
+Bear in mind that in this case PLUMED will include the EnvironmentSimilarity collective variable and therefore you will have to remove the line ```LOAD FILE=EnvironmentSimilarity.cpp``` from the plumed.dat file.
+
+If the previous commands are succesful, you can proceed to install LAMMPS:
+```
+wget https://github.com/lammps/lammps/archive/stable_3Mar2020.tar.gz
+tar -xf stable_3Mar2020.tar.gz
+cd lammps-stable_3Mar2020/src
+make lib-plumed args="-p $installfolder -m static"
+make yes-user-plumed
+make yes-manybody
+make yes-molecule
+make mpi # or make serial if you don't have an MPI library
+lammpsexe=$(pwd)/lmp_mpi # or lmp_serial if you don't have an MPI library
+```
+
+Now you should be able to use *$lammpsexe* and *plumed* to execute LAMMPS and PLUMED, respectively.
+If you close the terminal these commands will no longer be available.
+In order to recover them run the commands ```source sourceme.sh``` and ```lammpsexe=$(pwd)/lmp_mpi``` again in the appropriate folders.
+
+A better option for more experienced users would be to include these lines in your ```~/.bashrc```:
+```
+lammpsexe=${path_to_lammps}/src/lmp_mpi # or lmp_serial if you don't have an MPI library
+source ${path_to_plumed2-master}/sourceme.sh
+```
+Note that you should replace ```${path_to_lammps}``` and  ```${path_to_plumed2-master}``` with the appropriate path to the LAMMPS and PLUMED folders.
+
+#### Compilation instructions: Other options
+
+Compiling LAMMPS and PLUMED on a computer cluster can be non trivial.
+You can find an example [here](https://github.com/PabloPiaggi/CSI-hacks-and-tricks/tree/master/Compilation/Plumed).
+
+If you would like to try other compilation options you can find further information in [LAMMPS](https://lammps.sandia.gov/doc/Build.html) and [PLUMED's manual](https://www.plumed.org/doc-v2.5/user-doc/html/_installation.html).
 
 ## Introduction
 
@@ -132,7 +177,7 @@ Inspect the COLVAR file, this will contain the collective variable, the bias pot
 While the simulation is running you can check its progress by plotting the collective variable as a function of time.
 Furthermore, you can calculate the FES with the command
 ```
-$plumedexe sum_hills --hills HILLS --mintozero
+plumed sum_hills --hills HILLS --mintozero
 ```
 This will create a new file fes.dat.
 Plot the contents of this file and track the convergence of the bias potential.
