@@ -12,6 +12,7 @@ Silicon is described using the Stillinger-Weber potential [Stillinger and Weber,
    * [Collective variable](#collective-variable)
 * [Example](#example)
 * [Visualization](#visualization)
+* [Determine SIGMA for the EnvironmentSimilarity CV](#determine-sigma)
 * [Assignment](#assignment)
 
 
