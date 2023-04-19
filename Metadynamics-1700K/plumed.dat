@@ -1,7 +1,5 @@
 # vim:ft=plumed
 
-LOAD FILE=EnvironmentSimilarity.cpp
-
 ENVIRONMENTSIMILARITY ...
  SPECIES=1-216
  SIGMA=0.04

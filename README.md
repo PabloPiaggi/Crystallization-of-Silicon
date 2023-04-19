@@ -24,26 +24,24 @@ We will study in particular the crystallization of silicon and learn to calculat
 ## Requirements and installation
 
 This tutorial uses the molecular dynamics engine LAMMPS patched with the PLUMED 2 enhanced sampling plugin.
-It is difficult to provide installation instructions that suit everyone.
-I propose two different solutions.
-I suggest to try the first one and use the second alternative if the first fails.
 
-#### Compilation instructions: First alternative
+#### Compilation instructions
 
-Let's start with the easiest.
 LAMMPS and PLUMED can be installed with the following commands:
 
 ```
-wget https://github.com/lammps/lammps/archive/stable_3Mar2020.tar.gz
-tar -xf stable_3Mar2020.tar.gz
-cd lammps-stable_3Mar2020/src
+wget https://github.com/lammps/lammps/archive/refs/tags/stable_23Jun2022_update3.tar.gz
+tar -xf stable_23Jun2022_update3.tar.gz 
+cd lammps-stable_23Jun2022_update3/
 make lib-plumed args="-b"
-make yes-user-plumed
+make yes-plumed
 make yes-manybody
 make yes-molecule
-make mpi # or make serial if you don't have an MPI library
+make yes-extra-fix
+make yes-extra-dump
+make mpi -j$(nproc) # or make serial if you don't have an MPI library
 lammpsexe=$(pwd)/lmp_mpi # or lammpsexe=$(pwd)/lmp_serial if you don't have an MPI library
-cd ../lib/plumed/plumed-2.6.0
+cd ../lib/plumed/plumed-2.8.1
 source sourceme.sh
 ```
 
@@ -57,48 +55,6 @@ lammpsexe=${path_to_lammps}/src/lmp_mpi # or lmp_serial if you don't have an MPI
 source ${path_to_lammps}/lib/plumed/plumed-2.6.0/sourceme.sh
 ```
 Note that you should replace ```${path_to_lammps}``` with the appropriate path to the LAMMPS folder.
-
-#### Compilation instructions: Second alternative
-
-If the first set of instructions didn't work you can try the following.
-PLUMED's master branch can be installed with the following commands:
-```
-mkdir plumed2-install
-installfolder=$(pwd)/plumed2-install
-wget https://github.com/plumed/plumed2/archive/master.zip
-unzip master.zip
-cd plumed2-master
-./configure --prefix=$installfolder --enable-modules=crystallization
-make -j 2 # Replace 2 with the number of processore you want to use
-make install
-source sourceme.sh
-cd ..
-```
-Bear in mind that in this case PLUMED will include the EnvironmentSimilarity collective variable and therefore you will have to remove the line ```LOAD FILE=EnvironmentSimilarity.cpp``` from the plumed.dat file.
-
-If the previous commands are succesful, you can proceed to install LAMMPS:
-```
-wget https://github.com/lammps/lammps/archive/stable_3Mar2020.tar.gz
-tar -xf stable_3Mar2020.tar.gz
-cd lammps-stable_3Mar2020/src
-make lib-plumed args="-p $installfolder -m static"
-make yes-user-plumed
-make yes-manybody
-make yes-molecule
-make mpi # or make serial if you don't have an MPI library
-lammpsexe=$(pwd)/lmp_mpi # or lmp_serial if you don't have an MPI library
-```
-
-Now you should be able to use *$lammpsexe* and *plumed* to execute LAMMPS and PLUMED, respectively.
-If you close the terminal these commands will no longer be available.
-In order to recover them run the commands ```source sourceme.sh``` and ```lammpsexe=$(pwd)/lmp_mpi``` again in the appropriate folders.
-
-A better option for more experienced users would be to include these lines in your ```~/.bashrc```:
-```
-lammpsexe=${path_to_lammps}/src/lmp_mpi # or lmp_serial if you don't have an MPI library
-source ${path_to_plumed2-master}/sourceme.sh
-```
-Note that you should replace ```${path_to_lammps}``` and  ```${path_to_plumed2-master}``` with the appropriate path to the LAMMPS and PLUMED folders.
 
 #### Compilation instructions: Other options
 
