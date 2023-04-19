@@ -52,7 +52,7 @@ In order to recover them run the last three commands again.
 A better option for more experienced users would be to include these lines in your ```~/.bashrc```:
 ```
 lammpsexe=${path_to_lammps}/src/lmp_mpi # or lmp_serial if you don't have an MPI library
-source ${path_to_lammps}/lib/plumed/plumed-2.6.0/sourceme.sh
+source ${path_to_lammps}/lib/plumed/plumed-2.8.1/sourceme.sh
 ```
 Note that you should replace ```${path_to_lammps}``` with the appropriate path to the LAMMPS folder.
 
