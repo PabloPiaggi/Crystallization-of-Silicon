@@ -1,4 +1,5 @@
-numpy==1.21.6
+numpy
 matplotlib
-ase==3.19.0
-nglview==2.7.5
+ase
+nglview
+ipywidgets==7.*
