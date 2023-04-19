@@ -56,6 +56,12 @@ source ${path_to_lammps}/lib/plumed/plumed-2.6.0/sourceme.sh
 ```
 Note that you should replace ```${path_to_lammps}``` with the appropriate path to the LAMMPS folder.
 
+Finally, you can retrieve all files in this repository using:
+```
+git clone https://github.com/PabloPiaggi/Crystallization-of-Silicon
+cd Crystallization-of-Silicon
+```
+
 #### Compilation instructions: Other options
 
 Compiling LAMMPS and PLUMED on a computer cluster can be non trivial.
@@ -123,6 +129,7 @@ This is the per atom collective variable (or multicolvar) that we will employ.
 The folder ```Metadynamics-1700K``` contains the input files to run the simulation.
 You can run the example with the command:
 ```
+cd Metadynamics-1700K
 $lammpsexe < start.lmp > out.lmp
 ```
 This will run a 5 ns long metadynamics simulation at 1700 K and 1 bar.
