@@ -167,9 +167,9 @@ Below we show liquid and solid configurations colored with the modifier ```Ident
 
 ## Determine SIGMA for the EnvironmentSimilarity CV
 
-One of the parameters that has to be chosen is <img src="https://render.githubusercontent.com/render/math?math=sigma"> in the definition of the collective variable.
+One of the parameters that has to be chosen is <img src="https://render.githubusercontent.com/render/math?math=\sigma"> in the definition of the collective variable.
 One way to choose it is by analyzing the distributions of <img src="https://render.githubusercontent.com/render/math?math=k_{\chi_0}(\chi)"> for the liquid and the solid.
-One can then determine the overlap between these distributions and choose the value of <img src="https://render.githubusercontent.com/render/math?math=sigma"> that minimizes the overlap, therefore maximizing the ability of the CV to discriminate between structures.
+One can then determine the overlap between these distributions and choose the value of <img src="https://render.githubusercontent.com/render/math?math=\sigma"> that minimizes the overlap, therefore maximizing the ability of the CV to discriminate between structures.
 The threshold of <img src="https://render.githubusercontent.com/render/math?math=k_{\chi_0}(\chi)"> that determines whether an atom belongs to one phase or the other has to be chosen based on this distribution.
 Here we show a plot of the overlap as a function of SIGMA:
 
