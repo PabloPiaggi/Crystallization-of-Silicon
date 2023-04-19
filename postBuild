@@ -1,1 +1,2 @@
-jupyter-nbextension      enable --py --sys-prefix nglview 
+#!/bin/bash
+jupyter nbextension      enable --py widgetsnbextension
